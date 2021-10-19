@@ -6,12 +6,15 @@ pom.xml
 pom.xml.asc
 *.jar
 *.class
-/.lein-*
 /.nrepl-port
 /.prepl-port
 .hgignore
 .hg/
 /.calva
 /.clj-kondo
+/.cpcache
 /.lsp
 /.idea
+.classpath
+.project
+.settings
