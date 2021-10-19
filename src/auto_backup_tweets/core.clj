@@ -1,4 +1,7 @@
 (ns auto-backup-tweets.core)
 
+(defn hello [x]
+  (println (str "Hello, " x "!")))
+
 (defn -main [& args]
-  (println "Hello, World!"))
+  (hello "world"))
