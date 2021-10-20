@@ -9,5 +9,5 @@ export TWITTER_CONSUMER_SECRET="..."
 
 ```bash
 direnv allow
-clj -M -m auto-backup-tweets.core # 取得したアクセストークンが出力される
+clj -M -m auto-backup-tweets.core
 ```
