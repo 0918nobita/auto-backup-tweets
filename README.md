@@ -1,5 +1,13 @@
 # auto-backup-tweets
 
+``.envrc``:
+
 ```bash
-clj -M -m auto-backup-tweets.core
+export TWITTER_CONSUMER_KEY="..."
+export TWITTER_CONSUMER_SECRET="..."
+```
+
+```bash
+direnv allow
+clj -M -m auto-backup-tweets.core # 取得したアクセストークンが出力される
 ```
