@@ -17,7 +17,7 @@
         {:basic-auth (map url-encode [consumer_key consumer_secret])
          :content-type "application/x-www-form-urlencoded;charset=UTF-8"
          :form-params {"grant_type" "client_credentials"}}))
-      (get :body)
+      (:body)
       (parse-string)
       (get "access_token")))
 
@@ -29,7 +29,7 @@
         http-base-config
         {:oauth-token access-token
          :query-params {"id" tweet-id}}))
-      (get :body)
+      (:body)
       (parse-string)
       (get "text")))
 
@@ -43,10 +43,11 @@
                         :query-params {"screen_name" screen-name
                                        "include_rts" false
                                        "count" 200}}))
-                     (get :body)
+                     (:body)
                      (parse-string))]
     (->> res-body
-         (map (fn [tweet] {:id (tweet "id") :text (tweet "text")})))))
+         (map (fn [tweet] {:id   (tweet "id")
+                           :text (tweet "text")})))))
 
 (defn -main []
   (let [consumer-key     (env :twitter-consumer-key)
