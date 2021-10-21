@@ -8,7 +8,7 @@
   {:cookie-policy :none
    :throw-entire-message? true})
 
-(defn- fetch-access-token [consumer_key consumer_secret]
+(defn fetch-access-token [consumer_key consumer_secret]
   (println "Fetching access token ...")
   (-> "https://api.twitter.com/oauth2/token"
       (client/post
