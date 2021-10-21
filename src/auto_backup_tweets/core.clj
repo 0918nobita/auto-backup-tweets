@@ -21,7 +21,7 @@
       (parse-string)
       (get "access_token")))
 
-(defn- fetch-tweet [access-token tweet-id]
+(defn fetch-tweet [access-token tweet-id]
   (println "Fetching specified tweet ...")
   (-> "https://api.twitter.com/1.1/statuses/show.json"
       (client/get
