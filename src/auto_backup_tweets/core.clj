@@ -45,7 +45,8 @@
                                        "count" 200}}))
                      (get :body)
                      (parse-string))]
-    (map #(get % "text") res-body)))
+    (->> res-body
+         (map (fn [tweet] {:id (tweet "id") :text (tweet "text")})))))
 
 (defn -main []
   (let [consumer-key     (env :twitter-consumer-key)
@@ -55,5 +56,5 @@
         fetched-timeline (future (fetch-user-timeline access-token "0918nobita"))]
     (println @fetched-tweet)
     (doseq [tweet @fetched-timeline]
-      (println tweet))
+      (prn tweet))
     (shutdown-agents)))
