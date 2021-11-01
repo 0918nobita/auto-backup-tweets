@@ -1,10 +1,13 @@
 (ns auto-backup-tweets.test
-  (:require [clojure.test :refer [deftest is testing run-tests]]
-            [clj-http.client :as client]
-            [auto-backup-tweets.core :as abtc]))
+  (:require
+    [auto-backup-tweets.core :as abtc]
+    [clj-http.client :as client]
+    [clojure.test :refer [deftest is testing run-tests]]))
+
 
 (def consumer-key "consumer-key")
 (def consumer-secret "consumer-secret")
+
 
 (deftest twitter-api
   (testing "Fetching access token"
@@ -18,5 +21,7 @@
                   (fn [_ _] {:body "{\"text\": \"test tweet\"}"})]
       (is (= "test tweet" (abtc/fetch-tweet consumer-key consumer-secret))))))
 
-(defn -main []
+
+(defn -main
+  []
   (run-tests 'auto-backup-tweets.test))
