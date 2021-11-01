@@ -1,0 +1,13 @@
+name: Lint
+
+on: push
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: 0918nobita/setup-cljstyle@release/main
+        with:
+          cljstyle-version: "0.15.0"
+          run-check: true
