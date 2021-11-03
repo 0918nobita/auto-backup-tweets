@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: 0918nobita/setup-cljstyle@release/main
+      - uses: 0918nobita/setup-cljstyle@v0.5.0
         with:
           cljstyle-version: "0.15.0"
           run-check: true
