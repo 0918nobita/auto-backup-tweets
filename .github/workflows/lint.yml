@@ -7,7 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: 0918nobita/setup-cljstyle@release/main
+      - uses: reviewdog/action-setup@v1
+        with:
+          reviewdog_version: latest
+      - uses: 0918nobita/setup-cljstyle@v1.0.0-alpha.1
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.PAT }}
         with:
           cljstyle-version: "0.15.0"
-          run-check: true
+          run-check: |
+            reviewdog-enabled: true
